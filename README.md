@@ -1,14 +1,18 @@
 ## ChatGPT-Tarot
 
-This is a simple ChatGPT powered static website. It contains 2 parts:
+This is the code behind http://tarot.dendory.net
 
-* The script in /script can be used to select random cards, then get a reading from ChatGPT and populate the readings.json file.
-* The static HTML files in /html can be placed on any public web site, even an S3 bucket, and it will pick a random entry from the JSON file and present it to the viewer.
+The files here can be used to create a simple ChatGPT powered static website. It contains 2 parts:
+
+* The script in `script` can be used to select random cards, then get a reading from ChatGPT and populate the readings.json file.
+* The static HTML files in `html` can be placed on any public web site, even an S3 bucket, and it will pick a random entry from the JSON file and present it to the viewer. It also contains a number of JPEG files for the cards. Those were created by myself using the Midjourney AI.
+
+Note: Before you can use the script, you need to get your own ChatGPT API key from the OpenAI website and add it in the `get_readings.py` file.
 
 
 ## Screenshot
 
-![Screenshot of the website](screenshot.jpg)
+![Screenshot of the website](screenshot.png)
 
 
 ## License

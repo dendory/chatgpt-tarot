@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <style>
+                        *
+                        {
+                                background-color: #000000;
+                                color: #FFFFFF;
+                        }
+                </style>
+                <title>ChatGPT Tarot</title>
+        </head>
+        <body>
+                <h2>Your AI-powered tarot reading says...</h2>
+
+                <table style="border-spacing:5px;border-collapse:separate;padding-left:10px;padding-right:10px;width=100%;display:grid;background-color: #182025 !important;">
+                        <tr>
+                                <td style="width:33%;max-height:50%;padding:5px;vertical-align:top">
+                                        <center><h2 id='card1'>Loading...</h2></center><br>
+                                        <img id="img1" style="max-width:90%;margin:auto" src="back.jpg">
+                                </td>
+                                <td style="width:33%;max-height:50%;padding:5px;vertical-align:top">
+                                        <center><h2 id='card2'>Loading...</h2></center><br>
+                                        <img id="img2" style="max-width:90%;margin:auto" src="back.jpg">
+                                </td>
+                                <td style="width:33%;max-height:50%;padding:5px;vertical-align:top">
+                                        <center><h2 id='card3'>Loading...</h2></center><br>
+                                        <img id="img3" style="max-width:90%;margin:auto" src="back.jpg">
+                                </td>
+                        </tr>
+                </table>
+
+                <br>
+
+                <center><h3 id='reading'><img src='loading.gif' title='Loading...'></img></h3></center>
+
+                <br>
+
+				<script type="text/javascript">
+					fetch('readings.json')
+						.then(function (response) {
+							return response.json();
+						})
+						.then(function (data) {
+							appendData(data);
+						})
+						.catch(function (err) {
+							console.log('Error: ' + err);
+						});
+
+					function appendData(data) {
+						const random = Math.floor(Math.random() * data.length);
+						console.log('Random reading selected: ' + random);
+						document.getElementById("reading").innerHTML = data[random]['message'];
+						document.getElementById("img1").src = data[random]['images'][0] + ".jpg";
+						document.getElementById("img2").src = data[random]['images'][1] + ".jpg";
+						document.getElementById("img3").src = data[random]['images'][2] + ".jpg";
+						document.getElementById("card1").innerHTML = data[random]['cards'][0];
+						document.getElementById("card2").innerHTML = data[random]['cards'][1];
+						document.getElementById("card3").innerHTML = data[random]['cards'][2];
+					}
+                </script>
+
+        </body>
+</html>
