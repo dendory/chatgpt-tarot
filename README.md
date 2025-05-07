@@ -1,6 +1,6 @@
 ## ChatGPT-Tarot
 
-This is the code behind http://tarot.dendory.net
+This is the code behind https://dendory.net/tarot
 
 The files here can be used to create a simple ChatGPT powered static website. It contains 2 parts:
 
